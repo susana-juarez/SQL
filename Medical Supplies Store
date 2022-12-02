@@ -1,0 +1,38 @@
+** The project waas to create a SQL table that was a store.
+I had to list 15 items with five columns stating what my store would be selling. 
+In the columns, I have:
+  the id,
+  the name of the item, 
+  the price, 
+  what aisle they will be found in, 
+  and if they are in stock. **
+
+
+CREATE TABLE Store (id INTEGER PRIMARY KEY, name TEXT, price INTEGER, aisle INTEGER, In_Stock TEXT);
+
+INSERT INTO Store VALUES (1, "Bandages", 5, 1, "Yes");
+INSERT INTO Store VALUES (2, "Oxygen Mask", 10, 4, "Yes");
+INSERT INTO Store VALUES (3, "Shears", 25, 3, "Yes");
+INSERT INTO Store VALUES (4, "C-Collar", 90, 2, "Yes");
+INSERT INTO Store VALUES (5, "Gauze", 9, 1, "Yes");
+INSERT INTO Store VALUES (6, "Blood Pressure Cuff", 20, 3, "Yes");
+INSERT INTO Store VALUES (7, "Glucose machine", 50, 3, "Yes");
+INSERT INTO Store VALUES (8, "Stethoscope", 70, 3, "Yes");
+INSERT INTO Store VALUES (9, "Oxygen", 25, 4, "Yes");
+INSERT INTO Store VALUES (10, "Pulse Ox", 10, 4, "Yes");
+INSERT INTO Store VALUES (11, "masks", 10, 4, "Yes");
+INSERT INTO Store VALUES (12, "Flashlight", 20, 3, "Yes");
+INSERT INTO Store VALUES (13, "Tourniquet", 30, 2, "Yes");
+INSERT INTO Store VALUES (14, "Eyewash", 15, 4, "Yes");
+INSERT INTO Store VALUES (15, "Gloves", 15, 1, "Yes");
+
+** With the Select, I managed to order the price from lowest to highest in the store in ASC order.**
+SELECT * 
+FROM Store
+WHERE price
+ORDER BY price ASC;
+
+ 
+**In the second SELECT, I got the SUM of the total price if someone were to buy one item of each category. **
+
+SELECT SUM(price) FROM Store
