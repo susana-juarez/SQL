@@ -1,0 +1,76 @@
+/* Create table about the people and what they do here */
+#For this project, I needed to create two seperate charts that belong to the category Books.
+#I decided to do Author, number of books created, amount of sales, genre and nationality. 
+
+CREATE TABLE Authors (id INTEGER PRIMARY KEY, name TEXT, total_sale INTEGER, nationality TEXT);
+
+CREATE TABLE Books (id INTEGER PRIMARY KEY, number_books INTEGER, genre TEXT);
+
+INSERT INTO Authors VALUES (1, "Stephen King", 350, "American");
+INSERT INTO Authors VALUES (2, "Erskine Caldwell", 100, "American");
+INSERT INTO Authors VALUES (3, "Kelly Armstrong", 400, "Canadian");
+INSERT INTO Authors VALUES (4, "Nora Roberts", 400, "American");
+INSERT INTO Authors VALUES (5, "Kyotaro Nishimura", 200, "Japanese");
+INSERT INTO Authors VALUES (6, "Eiichiro Oda", 516.5, "Japanese");
+INSERT INTO Authors VALUES (7, "Akira Toriyama", 438, "Japanese");
+INSERT INTO Authors VALUES (8, "JK Rowling", 500, "British");
+INSERT INTO Authors VALUES (9, "R.L. Stine", 400, "American");
+INSERT INTO Authors VALUES (10, "Paulo Coelho", 350, "Brazillian");
+INSERT INTO Authors VALUES (11, "Hajime Isayama", 100, "Japanese");
+INSERT INTO Authors VALUES (12, "Wilbur Smith", 100, "South African");
+INSERT INTO Authors VALUES (13, "Catherine Cookson", 120, "Romance");
+INSERT INTO Authors VALUES (14, "Tite Kubo", 120, "Japanese");
+INSERT INTO Authors VALUES (15, "Gerard de Villiers", 150, "French");
+INSERT INTO Authors VALUES (16, "Corin Tellado", 400, "Spanish");
+
+
+INSERT INTO Books VALUES (1, 77, "Horror");
+INSERT INTO Books VALUES (2, 25, "Literature");
+INSERT INTO Books VALUES (3, 100, "Fantasy");
+INSERT INTO Books VALUES (4, 200, "Romance");
+INSERT INTO Books VALUES (5, 400, "Mystery");
+INSERT INTO Books VALUES (6, 104, "Manga");
+INSERT INTO Books VALUES (7, 66, "Manga");
+INSERT INTO Books VALUES (8, 22, "Fantasy");
+INSERT INTO Books VALUES (9, 430, "Horror");
+INSERT INTO Books VALUES (10, 28, "Allegory");
+INSERT INTO Books VALUES (11, 34, "Manga");
+INSERT INTO Books VALUES (12, 32, "African Adventure");
+INSERT INTO Books VALUES (13, 103, "British");
+INSERT INTO Books VALUES (14, 74, "Manga");
+INSERT INTO Books VALUES (15, 170, "Detective");
+INSERT INTO Books VALUES (16, 4000, "Romance");
+
+#I pulled up both charts separately first#
+
+SELECT * 
+FROM Authors;
+
+SELECT *
+FROM books;
+
+#Both the Authors and the Books charts were joined together and in alphabetical order by the Author's names.#
+
+SELECT Authors.name, Books.genre
+FROM Authors
+LEFT OUTER JOIN Books
+ON authors.id = books.id
+ORDER BY name DESC;
+
+#Author's name and number of books written were joined together from both charts and in ASC order by number of books written#
+
+SELECT authors.name, books.number_books
+FROM Authors
+LEFT OUTER JOIN Books
+ON authors.id=books.id
+ORDER BY number_books ASC;
+
+#Author's name, genre and the total amount sold were joined, with the total sold in DESC order#
+
+SELECT authors.name AS Author, books.genre, authors.total_sale AS Sold
+FROM Authors
+LEFT OUTER JOIN Books
+ON authors.id=books.id
+ORDER BY total_sale DESC;
+
+
