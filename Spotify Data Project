@@ -1,0 +1,35 @@
+In this project, there is information on the top 50 songs playing on Spotify. These are some of the questions that I came up with and the answers in SQL.
+
+#1. What are the top 5 tracks with the most popularity?
+**Here I wanted to show the song, artist and the highest rating in popularity.**
+
+SELECT artist_name, track_name, popularity
+FROM BIT_DB.Spotifydata
+WHERE popularity >= 50
+ORDER BY popularity DESC
+LIMIT 5
+
+#2. What is the average duration of the songs?
+**For questions 2 & 3, I wanted to know the average of the duration_ms of the song and the average of the popularity of a song.**
+
+SELECT id, AVG(duration_ms)
+FROM BIT_DB.Spotifydata
+
+
+#3. What is the average popularity?
+
+SELECT id, AVG(popularity), popularity
+FROM BIT_DB.Spotifydata
+
+
+#4. Which 5 songs have the least popularity?
+ 
+SELECT artist_name, track_name, popularity, duration_ms
+FROM BIT_DB.Spotifydata
+WHERE popularity <= 80
+ORDER BY popularity DESC
+LIMIT 5 
+ 
+
+#5.
+
