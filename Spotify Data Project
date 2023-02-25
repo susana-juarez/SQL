@@ -1,7 +1,8 @@
-In this project, there is information on the top 50 songs playing on Spotify. These are some of the questions that I came up with and the answers in SQL.
+In this project, there is information on the top 50 songs playing on Spotify.
+
 
 #1. What are the top 5 tracks with the most popularity?
-**Here I wanted to show the song, artist and the highest rating in popularity.**
+**Here I wanted to show the song, artist and the highest ranking in popularity.**
 
 SELECT artist_name, track_name, popularity
 FROM BIT_DB.Spotifydata
@@ -31,5 +32,17 @@ ORDER BY popularity DESC
 LIMIT 5 
  
 
-#5.
+#5. Which song is the most danceable?
+
+SELECT artist_name, track_name, danceability
+FROM BIT_DB.Spotifydata
+ORDER BY danceability DESC
+LIMIT 1
+
+#6. What artist has the loudest song and what ranking is their popularity?
+
+SELECT artist_name, track_name, loudness, popularity
+FROM BIT_DB.Spotifydata
+ORDER BY loudness ASC
+LIMIT 1
 
