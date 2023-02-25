@@ -23,7 +23,23 @@ SELECT id, AVG(popularity), popularity
 FROM BIT_DB.Spotifydata
 
 
-#4. Which 5 songs have the least popularity?
+#4. Create an temporary table while using the tag Top Star in order to find the average popularity that is more than 90.
+
+WITH popularity_average_CTE AS (
+SELECT s.artist_name,
+AVG(s.popularity) AS average_popularity
+FROM SpotifyData s 
+GROUP BY s.artist_name
+)
+ 
+SELECT  artist_name,
+        average_popularity,
+        'Top Star' AS tag
+FROM popularity_average_CTE
+WHERE average_popularity>=90;
+
+
+#5. Which 5 songs have the least popularity?
  
 SELECT artist_name, track_name, popularity, duration_ms
 FROM BIT_DB.Spotifydata
@@ -32,14 +48,14 @@ ORDER BY popularity DESC
 LIMIT 5 
  
 
-#5. Which song is the most danceable?
+#6. Which song is the most danceable?
 
 SELECT artist_name, track_name, danceability
 FROM BIT_DB.Spotifydata
 ORDER BY danceability DESC
 LIMIT 1
 
-#6. What artist has the loudest song and what ranking is their popularity?
+#7. What artist has the loudest song and what ranking is their popularity?
 
 SELECT artist_name, track_name, loudness, popularity
 FROM BIT_DB.Spotifydata
