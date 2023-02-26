@@ -1,0 +1,15 @@
+
+
+#1. List all the bike lanes that have an average safety rating of 4.0 or higher, average safety rating for each of those bike lanes, and a label that says "Safe Lane".
+
+WITH safety_average_cte AS (
+    sELECT street,
+     AVG(safetyrating) AS average_safety
+    FROM CityBikeLanes 
+    GROUP BY street
+)
+SELECT street, 
+    average_safety,
+    'Safe Lane' AS label
+FROM safety_average_cte
+WHERE average_safety >= 4.0
