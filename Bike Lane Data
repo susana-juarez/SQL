@@ -13,3 +13,22 @@ SELECT street,
     'Safe Lane' AS label
 FROM safety_average_cte
 WHERE average_safety >= 4.0
+
+#2. Which streets are protected and order in DESC of year installed?
+
+SELECT id, year_installed, street, protected
+FROM CityBikeLanes
+WHERE protected = 'yes'
+ORDER BY year_installed DESC
+
+#3. How many streets are called Walnut?
+
+SELECT id, street
+FROM CityBikeLanes
+WHERE street = 'Walnut'
+
+#4. How many streets were updated in 2020?
+
+SELECT id, year_updated
+FROM CityBikeLanes
+WHERE year_updated = '2020'
