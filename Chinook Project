@@ -1,4 +1,4 @@
-#1.Show Customers (their full names, customer ID, and country) who are not in the US. (Hint: != or <> can be used to say "is not equal to").
+#1.Show Customers (their full names, customer ID, and country) who are not in the US.
 
 
 #2. Show only the Customers from Brazil.
@@ -32,6 +32,7 @@
 
 
 #12. Provide a query that shows all the Tracks, and include the Album name, Media type, and Genre.
+
 
 #13. Show the total sales made by each sales agent.
 
