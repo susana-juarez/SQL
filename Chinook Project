@@ -31,6 +31,14 @@ FROM chinook.invoices
 
 #6. Provide a query that shows the invoices associated with each sales agent. The resulting table should include the Sales Agent's full name.
 
+SELECT  e.EmployeeId, e.FirstName AS 'Employee First Name', e.LastName AS 'Employee Last Name', i.InvoiceId
+FROM chinook.invoice_items it
+JOIN chinook.invoices i
+    ON it.InvoiceLineId = i.InvoiceId
+JOIN chinook.customers c
+    ON i.InvoiceId = c.CustomerId
+JOIN chinook.employees e
+    ON c.SupportRepId = e.EmployeeId
 
 
 #7. Show the Invoice Total, Customer name, Country, and Sales Agent name for all invoices and customers.
@@ -47,9 +55,15 @@ WHERE Title = 'Sales Support Agent'
 
 #8. How many Invoices were there in 2009?
 
+SELECT InvoiceDate
+FROM chinook.invoices
+WHERE InvoiceDate LIKE '%2009%'
 
 #9. What are the total sales for 2009?
 
+SELECT InvoiceDate, SUM(Total) AS 'Total Sales'
+FROM chinook.invoices
+WHERE InvoiceDate LIKE '2009%'
 
 #10. Write a query that includes the purchased track name with each invoice line ID.
 
