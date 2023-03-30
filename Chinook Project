@@ -93,7 +93,3 @@ JOIN chinook.genres g
 JOIN chinook.albums al
     ON t.AlbumId = al.AlbumId
 
-#13. Show the total sales made by each sales agent.
-
-
-#14. Which sales agent made the most dollars in sales in 2009?
